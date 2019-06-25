@@ -46,7 +46,7 @@ In this section you will start your [Google Cloud Shell](https://cloud.google.co
 1. Clone the lab repository in your cloud shell, then `cd` into that dir:
 
   ```shell
-  $ git clone https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes.git
+  $ git clone https://github.com/supernisor123/continuous-deployment-on-kubernetes.git
   Cloning into 'continuous-deployment-on-kubernetes'...
   ...
 
