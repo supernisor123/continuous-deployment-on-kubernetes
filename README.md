@@ -139,7 +139,7 @@ In this lab, you will use Helm to install Jenkins from the Charts repository. He
 You will use a custom [values file](https://github.com/kubernetes/helm/blob/master/docs/chart_template_guide/values_files.md) to add the GCP specific plugin necessary to use service account credentials to reach your Cloud Source Repository.
 1. Use the Helm CLI to search right version of stable/jenkins.
    ```shell
-    helm search jenkins 
+    ./helm search jenkins 
     NAME          	CHART VERSION	APP VERSION	DESCRIPTION                                                 
     stable/jenkins	1.3.2        	lts        	Open source continuous integration server. It supports mu...
    ```
