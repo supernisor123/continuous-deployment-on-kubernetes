@@ -1,4 +1,4 @@
-Master:
+master:
   InstallPlugins:
     - kubernetes:latest
     - workflow-job:latest
@@ -11,8 +11,8 @@ Master:
   Memory: "3500Mi"
   JavaOpts: "-Xms3500m -Xmx3500m"
   ServiceType: ClusterIP
-Agent:
-  Enabled: true
+agent:
+  enabled: true
   resources:
     requests:
       cpu: "500m"
@@ -20,10 +20,10 @@ Agent:
     limits:
       cpu: "1"
       memory: "512Mi"
-Persistence:
+Persistent:
   Size: 100Gi
-NetworkPolicy:
+networkPolicy:
   ApiVersion: networking.k8s.io/v1
 rbac:
-  install: true
-  serviceAccountName: cd-jenkins
+  create: true
+  serviceAccount.name: cd-jenkins
