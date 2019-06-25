@@ -83,12 +83,24 @@ You should see `No resources found.`.
 In this lab, you will use Helm to install Jenkins from the Charts repository. Helm is a package manager that makes it easy to configure and deploy Kubernetes applications.  Once you have Jenkins installed, you'll be able to set up your CI/CD pipleline.
 
 1. Download and install the helm binary
-
+    For Linux :
     ```shell
+    
     wget https://storage.googleapis.com/kubernetes-helm/helm-v2.9.1-linux-amd64.tar.gz
     ```
+    For Mac OS X :
+      Install homebrew first
+    ```shell
+    
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
+      Install Helm by commands
+    ```shell
+    
+    brew install helm
+    ```
 
-1. Unzip the file to your local system:
+1. Unzip the file to your local system:(Mac OS X can skipped)
 
     ```shell
     tar zxfv helm-v2.9.1-linux-amd64.tar.gz
@@ -125,11 +137,17 @@ In this lab, you will use Helm to install Jenkins from the Charts repository. He
 
 ## Configure and Install Jenkins
 You will use a custom [values file](https://github.com/kubernetes/helm/blob/master/docs/chart_template_guide/values_files.md) to add the GCP specific plugin necessary to use service account credentials to reach your Cloud Source Repository.
+1. Use the Helm CLI to search right version of stable/jenkins.
+   ```shell
+    helm search jenkins 
+    NAME          	CHART VERSION	APP VERSION	DESCRIPTION                                                 
+    stable/jenkins	1.3.2        	lts        	Open source continuous integration server. It supports mu...
+   ```
 
 1. Use the Helm CLI to deploy the chart with your configuration set.
 
     ```shell
-    ./helm install -n cd stable/jenkins -f jenkins/values.yaml --version 0.16.6 --wait
+    ./helm install -n cd stable/jenkins -f jenkins/values.yaml --version 1.3.2 --wait
     ```
 
 1. Once that command completes ensure the Jenkins pod goes to the `Running` state and the container is in the `READY` state:
